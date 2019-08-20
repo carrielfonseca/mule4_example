@@ -1,0 +1,7 @@
+{
+ "name": "Joe",
+ "age": 18,
+ "birthay":"2000-10-10",
+ "lastPurchases": [1,2,3],
+ "salary": 30504.36
+}
