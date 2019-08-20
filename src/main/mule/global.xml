@@ -12,7 +12,10 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<ee:transform doc:name="Transform Message" doc:id="6b84d689-f564-40c9-9ca3-d97a291052ab">
 			<ee:message>
 				<ee:set-payload><![CDATA[%dw 2.0
-/* this is a comment */ 
+/* by right clicking / set metadata / choose type json in the dropbox
+ * / choose example in the drop down box / choose the json file
+ * dataweve will create a schema automatically as per the example
+ */ 
 output application/json
 var x = 5
 fun isFive(y) = if (y == 5) 1 else 0
@@ -22,7 +25,8 @@ fun isFive(y) = if (y == 5) 1 else 0
 	dateWithUTCTime2: '2019-02-02'  as Date as Date {format: "yyyy-MM-dd'T'00:00:00'Z'"},
 	timeWithMilliseconds: now() as Time { format: "HH:mm:ss.SSS'Z'" },
 	timeWithMilliseconds2: '08:30' as Time as Time { format: "HH:mm:ss.SSS'Z'" },
-	varFromFunction: isFive(x)
+	varFromFunction: isFive(x),
+	name: payload.name
 	
 }]]></ee:set-payload>
 			</ee:message>
