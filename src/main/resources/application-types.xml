@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="user-example" format="json">
+      <types:shape format="weave" example="api/user.json"><![CDATA[%dw 2.0
+
+type user_example = {|
+  name: String, 
+  age: Number {"typeId": "int"}, 
+  birthay: String, 
+  lastPurchases: Array<Number {"typeId": "int"}>, 
+  salary: Number {"typeId": "double"}
+|} {"example": "{\"name\":\"Joe\",\"age\":18,\"birthay\":\"2000-10-10T07:22Z\",\"lastPurchases\":[1,2,3],\"salary\":30504.36}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#6b84d689-f564-40c9-9ca3-d97a291052ab">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="user-example"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
