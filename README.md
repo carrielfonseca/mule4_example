@@ -1,5 +1,5 @@
 # mule4_example
-A Mule4 project with the fudamental components
+A Mule4 project with some fundamental components
 
 Useful Links
 Home
