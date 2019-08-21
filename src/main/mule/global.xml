@@ -8,6 +8,8 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="5c409705-13d2-4dcc-a6e0-d5999ea92425" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
+	<global-property doc:name="Global Property" doc:id="20c25f24-029a-44c8-831d-77b90515bba2" name="env" value="local" />
+	<configuration-properties doc:name="Configuration properties" doc:id="86f2c8ec-f97e-417d-b31a-f9df719b2639" file="config-local.yaml" />
 	<flow name="transformJson" doc:id="58f04d2e-ea94-498a-b9a3-eda95220d01b">
 		<ee:transform doc:name="Transform Message" doc:id="6b84d689-f564-40c9-9ca3-d97a291052ab">
 			<ee:message>
@@ -16,6 +18,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
  * / choose example in the drop down box / choose the json file
  * dataweve will create a schema automatically as per the example
  */ 
+
 output application/json
 var x = 5
 fun isFive(y) = if (y == 5) 1 else 0
@@ -26,8 +29,8 @@ fun isFive(y) = if (y == 5) 1 else 0
 	timeWithMilliseconds: now() as Time { format: "HH:mm:ss.SSS'Z'" },
 	timeWithMilliseconds2: '08:30' as Time as Time { format: "HH:mm:ss.SSS'Z'" },
 	varFromFunction: isFive(x),
-	name: payload.name // comes from the example set
-	
+	name: payload.name,  // payload comes from the example set
+	filePropertyVar: p("http.port")
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
