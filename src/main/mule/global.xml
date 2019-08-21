@@ -9,7 +9,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
 	<global-property doc:name="Global Property" doc:id="20c25f24-029a-44c8-831d-77b90515bba2" name="env" value="local" />
-	<configuration-properties doc:name="Configuration properties" doc:id="86f2c8ec-f97e-417d-b31a-f9df719b2639" file="config-local.yaml" />
+	<configuration-properties doc:name="Configuration properties" doc:id="86f2c8ec-f97e-417d-b31a-f9df719b2639" file="config-${env}.yaml" />
 	<flow name="transformJson" doc:id="58f04d2e-ea94-498a-b9a3-eda95220d01b">
 		<ee:transform doc:name="Transform Message" doc:id="6b84d689-f564-40c9-9ca3-d97a291052ab">
 			<ee:message>
