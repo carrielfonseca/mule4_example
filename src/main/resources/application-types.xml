@@ -2,7 +2,7 @@
 <types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
   <types:catalog>
     <types:type name="user-example" format="json">
-      <types:shape format="weave" example="api/user.json"><![CDATA[%dw 2.0
+      <types:shape format="weave" example="examples/user.json"><![CDATA[%dw 2.0
 
 type user_example = {|
   name: String, 
