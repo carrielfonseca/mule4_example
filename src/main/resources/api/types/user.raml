@@ -1,0 +1,25 @@
+#%RAML 1.0 DataType
+properties:
+  name:
+    type: string | nil
+    required: true
+  age:
+    type: integer
+    required: true
+  birthday:
+    type: datetime | date-only
+    required: true
+  lastPurchases:
+    type: array
+    required: true
+  salary:
+    type: number
+    required: number
+  children: array
+  items:
+    type: object
+    properties:
+      name: string
+      age: integer
+
+ 
