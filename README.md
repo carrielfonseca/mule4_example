@@ -16,6 +16,8 @@ https://docs.mulesoft.com/mule-runtime/4.2/dataweave-types#date_format_change
 
 RAML Tutorial
 https://raml.org/developers/raml-100-tutorial
+Reference to properly type arrays:
+https://forum.raml.org/t/assistance-with-array-types-not-generating-model-objects/2172
 
 Principais componentes:
 
