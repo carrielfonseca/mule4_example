@@ -1,7 +1,17 @@
 {
- "name": "Joe",
- "age": 18,
- "birthay":"2000-10-10T07:22Z",
- "lastPurchases": [1,2,3],
- "salary": 30504.36
+	"name": "Joe",
+	"age": 18,
+	"birthay": "2000-10-10T07:22Z",
+	"lastPurchases": [1,2,3],
+	"salary": 30504.36,
+	"children": [
+	  {
+	    "name": "Melanie",
+		"age": 3
+	  },
+	  {
+		"name": "William",
+		"age":0
+	  }
+	]
 }
