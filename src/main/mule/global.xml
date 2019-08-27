@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="5c409705-13d2-4dcc-a6e0-d5999ea92425" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
@@ -16,7 +17,8 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 				<ee:set-payload><![CDATA[%dw 2.0
 /* by right clicking / set metadata / choose type json in the dropbox
  * / choose example in the drop down box / choose the json file
- * dataweve will create a schema automatically as per the example
+ * dataweve will create a schema automatically as per the example.
+ * It will also use this example when running the preview for the transformation
  */ 
 
 output application/json
@@ -39,6 +41,6 @@ fun fabio(x) = if (x == 5) "'test2': 1" else  "'test2': 2"
 	</flow>
 	<flow name="globalFlow" doc:id="ebabfd05-3913-4e55-ade4-68bd134c2c36" >
 		<http:listener doc:name="Listener" doc:id="20f5d11a-4a40-4f47-a7bd-3e59f24d9b94" config-ref="HTTP_Listener_config" path="api/*"/>
-		<set-payload value='#["This is a test to set the payload"]' doc:name="Set Payload" doc:id="7f1fc910-3fd7-4c5b-88e8-2851eb59c6de" />
+		<apikit:router doc:name="APIkit Router" doc:id="3365d192-2f37-49e0-b131-f45b2b463842" />
 	</flow>
 </mule>
