@@ -1,7 +1,7 @@
 {
 	"name": "Joe",
 	"age": 18,
-	"birthay": "2000-10-10T07:22Z",
+	"birthday": "2000-10-10T07:22:23Z",
 	"lastPurchases": [1,2,3],
 	"salary": 30504.36,
 	"children": [
