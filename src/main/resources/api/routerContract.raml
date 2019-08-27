@@ -1,0 +1,24 @@
+#%RAML 1.0
+title: Service Max API (SFDC)
+description: Service Max API wrapper.
+version: v1
+baseUri: https://{host}/api
+protocols: [ HTTP, HTTPS ]
+mediaType: [ application/json ]
+
+
+
+/users/{id}:
+  put:
+    description: Update a skill in Service Max
+    body:
+      application/json:
+        type: !include /types/user.raml
+        example: !include ../examples/user.json
+#    responses:
+#      200:
+#        body:
+#          application/json:
+#            type: !include ../api/type/output-im-skill.raml
+#            example: !include ../api/examples/output-im-skill.json
+                          
