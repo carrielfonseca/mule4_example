@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="put:\users\(userId)" doc:id="0ccbce4b-d8ba-4a1e-bee7-9658e03b7644" >
+		<set-variable value="#[attributes.uriParams.userId]" doc:name="Set Variable" doc:id="76477c69-57bb-4289-a5fd-4ae5610c6521" variableName="userId"/>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="c4e2ea7a-79d5-4b8b-be79-e98be0da092a" />
+	</flow>
+</mule>

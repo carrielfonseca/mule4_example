@@ -11,6 +11,11 @@ http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/m
 	</http:listener-config>
 	<global-property doc:name="Global Property" doc:id="20c25f24-029a-44c8-831d-77b90515bba2" name="env" value="local" />
 	<configuration-properties doc:name="Configuration properties" doc:id="86f2c8ec-f97e-417d-b31a-f9df719b2639" file="config-${env}.yaml" />
+	<apikit:config outboundHeadersMapName="outboundHeadersMapName" httpStatusVarName="httpStatus" doc:name="Router" doc:id="ffa94235-4923-491a-8f05-5656c86e17d4" name="application-config" raml="routerContract.raml" >
+		<apikit:flow-mappings >
+			<apikit:flow-mapping resource="/users/{id}" action="put" content-type="application/json" flow-ref="users/(id)" />
+		</apikit:flow-mappings>
+	</apikit:config>
 	<flow name="transformJson" doc:id="58f04d2e-ea94-498a-b9a3-eda95220d01b">
 		<ee:transform doc:name="Transform Message" doc:id="6b84d689-f564-40c9-9ca3-d97a291052ab">
 			<ee:message>
@@ -24,7 +29,8 @@ http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/m
 output application/json
 var x = 5
 fun isFive(y) = if (y == 5) 1 else 0
-fun fabio(x) = if (x == 5) "'test2': 1" else  "'test2': 2"
+var hora = '08:00' as Time
+var hora2 = '08:10' as Time  as Time { format: "HH:mm:ss.SSS'Z'" }
 ---
 {
 	dateWithUTCTime: now() as Date {format: "yyyy-MM-dd'T'00:00:00'Z'"},
@@ -35,12 +41,14 @@ fun fabio(x) = if (x == 5) "'test2': 1" else  "'test2': 2"
 	name: payload.name,  // payload comes from the example set
 	filePropertyVar: p("http.port"),
 	(varIncludedUnderCertainCondition:2) if (x==5),
+	test: if (hora==hora2) 1 else 0,
+	test2:  hora
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 	</flow>
 	<flow name="globalFlow" doc:id="ebabfd05-3913-4e55-ade4-68bd134c2c36" >
 		<http:listener doc:name="Listener" doc:id="20f5d11a-4a40-4f47-a7bd-3e59f24d9b94" config-ref="HTTP_Listener_config" path="api/*"/>
-		<apikit:router doc:name="APIkit Router" doc:id="3365d192-2f37-49e0-b131-f45b2b463842" />
+		<apikit:router doc:name="APIkit Router" doc:id="3365d192-2f37-49e0-b131-f45b2b463842" config-ref="application-config"/>
 	</flow>
 </mule>
