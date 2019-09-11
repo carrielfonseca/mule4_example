@@ -56,8 +56,8 @@ var hora2 = '08:10' as Time  as Time { format: "HH:mm:ss.SSS'Z'" }
 		</http:listener>
 		<apikit:router doc:name="APIkit Router" doc:id="3365d192-2f37-49e0-b131-f45b2b463842" config-ref="application-config"/>
 		<error-handler >
-			<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="3ab4d28a-ffbe-4c66-af79-d15114505bd4" type="APIKIT:BAD_REQUEST">
-				<ee:transform doc:name="Transform Message" doc:id="d812c273-9c06-4324-80f5-7882494ab0c1" >
+			<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="c0c249b1-6369-4453-b3da-a2ed1b57fa99" type="APP:IS_DEVIL">
+				<ee:transform doc:name="Transform Message" doc:id="679b8af5-6c5f-4457-9fb3-12a018c3bd7b" >
 					<ee:message >
 						<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
@@ -71,7 +71,26 @@ date: now()
 }]]></ee:set-payload>
 					</ee:message>
 					<ee:variables >
-						<ee:set-variable variableName="httpStatus" ><![CDATA[400]]></ee:set-variable>
+						<ee:set-variable variableName="httpStatus" ><![CDATA[403]]></ee:set-variable>
+					</ee:variables>
+				</ee:transform>
+			</on-error-propagate>
+			<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="3ab4d28a-ffbe-4c66-af79-d15114505bd4" type="APIKIT:BAD_REQUEST">
+				<ee:transform doc:name="Transform Message" doc:id="d812c273-9c06-4324-80f5-7882494ab0c1">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+description:error.description,
+errorType: (error.errorType.namespace default "")  ++ ":" ++ (error.errorType.identifier default ""),
+cause: error.cause.cause.message, 
+correlationId: correlationId,
+date: now()
+}]]></ee:set-payload>
+					</ee:message>
+					<ee:variables>
+						<ee:set-variable variableName="httpStatus"><![CDATA[400]]></ee:set-variable>
 					</ee:variables>
 				</ee:transform>
 			</on-error-propagate>

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+<mule xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
 	<flow name="put:\users\(userId)" doc:id="0ccbce4b-d8ba-4a1e-bee7-9658e03b7644" >
 		<set-variable value="#[attributes.uriParams.userId]" doc:name="Set Variable" doc:id="76477c69-57bb-4289-a5fd-4ae5610c6521" variableName="userId"/>
+		<validation:is-true doc:name="Is not Devil" doc:id="4672d4ff-5291-4a5c-a6c3-e8e0f6418abd" expression='#[not (upper(payload.name) == "DEVIL")]' message="You shall not pass" doc:description="Maps an error that will be caught on the flobal document with httpStatus = 403">
+			<error-mapping sourceType="VALIDATION:INVALID_BOOLEAN" targetType="APP:IS_DEVIL" />
+		</validation:is-true>
 		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="c4e2ea7a-79d5-4b8b-be79-e98be0da092a" />
 	</flow>
 </mule>
