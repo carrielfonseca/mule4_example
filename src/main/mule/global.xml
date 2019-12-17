@@ -29,22 +29,40 @@ http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/m
 output application/json
 var x = 5
 fun isFive(y) = if (y == 5) 1 else 0
-var hora = '08:00' as Time
-var hora2 = '08:10' as Time  as Time { format: "HH:mm:ss.SSS'Z'" }
+
+
 ---
 {
 	dateWithUTCTime: now() as Date {format: "yyyy-MM-dd'T'00:00:00'Z'"},
 	dateWithUTCTime2: '2019-02-02'  as Date as Date {format: "yyyy-MM-dd'T'00:00:00'Z'"},
 	dateWithUTCConversion: (now() >> "UTC") as DateTime {format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"},
-	timeWithMilliseconds: now() as Time { format: "HH:mm:ss.SSS'Z'" },
+	timeWithMilliseconds: now() as Time { format: "HH:mm:ss.SSS'Z'" }, //converts to UTC time
 	timeWithMilliseconds2: '08:30' as Time as Time { format: "HH:mm:ss.SSS'Z'" },
 	varFromFunction: isFive(x),
 	name: payload.name,  // payload comes from the example set
 	filePropertyVar: p("http.port"),
-	(varIncludedUnderCertainCondition:2) if (x==5),
-	test: if (hora==hora2) 1 else 0,
-	test2:  hora
+	(varIncludedUnderCertainCondition:2) if (x==5), // conditional key
+
 }]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="transformFlatToHierarchy" doc:id="83b49607-58e7-4eb1-9e5a-8131981cea18" >
+		<ee:transform doc:name="Transform Message" doc:id="66bb53fa-40c5-434a-bc72-034a79ea4369" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+var t = [ {"code": 1, "parentCode": null}, {"code": 2, "parentCode": 1 }, {"code": 3, "parentCode": 2 }]
+fun teste(technicalPosition) = technicalPosition ++ {"technicalPositions": 
+	(  
+	  t filter (value, index) -> value.parentCode ~= technicalPosition.code	
+	) map(ele, index) -> teste(ele)   
+	}
+	
+
+---
+teste({"code": 1, "parentCode": null})
+]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 	</flow>
