@@ -42,6 +42,7 @@ fun convertDateTimeToZulu(dateTime) =  (dateTime as DateTime >> "UTC") as  DateT
 	name: payload.name,  // payload comes from the example set
 	filePropertyVar: p("http.port"),
 	(varIncludedUnderCertainCondition:2) if (x==5), // conditional key
+	timeZoneOffset: ((now() >> "America/Montreal") as String {format:"Z"}) 
 
 }]]></ee:set-payload>
 			</ee:message>
