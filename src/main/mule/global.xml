@@ -115,6 +115,25 @@ date: now()
 					</ee:variables>
 				</ee:transform>
 			</on-error-propagate>
+			<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="895cda21-f22d-4d08-a075-dece90a236f8" type="ANY" >
+				<ee:transform doc:name="Transform Message" doc:id="c202f3f9-35f8-4f4a-8e49-a82699a69dee" >
+					<ee:message >
+						<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+description:error.description,
+errorType: (error.errorType.namespace default "")  ++ ":" ++ (error.errorType.identifier default ""),
+cause: error.cause.cause.message, 
+correlationId: correlationId,
+date: now()
+}]]></ee:set-payload>
+					</ee:message>
+					<ee:variables >
+						<ee:set-variable variableName="httpStatus" ><![CDATA[400]]></ee:set-variable>
+					</ee:variables>
+				</ee:transform>
+			</on-error-propagate>
 		</error-handler>
 	</flow>
 </mule>
