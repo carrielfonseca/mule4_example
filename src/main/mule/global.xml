@@ -17,7 +17,7 @@ http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/m
 		</apikit:flow-mappings>
 	</apikit:config>
 	<flow name="transformJson" doc:id="58f04d2e-ea94-498a-b9a3-eda95220d01b">
-		<ee:transform doc:name="Transform Message" doc:id="6b84d689-f564-40c9-9ca3-d97a291052ab">
+		<ee:transform doc:name="some examples of data manipulation" doc:id="6b84d689-f564-40c9-9ca3-d97a291052ab">
 			<ee:message>
 				<ee:set-payload><![CDATA[%dw 2.0
 /* by right clicking / set metadata / choose type json in the dropbox
@@ -47,9 +47,25 @@ fun convertDateTimeToZulu(dateTime) =  (dateTime as DateTime >> "UTC") as  DateT
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+		<ee:transform doc:name="small gotcha when manipulating dates" doc:id="fa7375a7-c22c-4df2-892f-e3c2bae6b112" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+var testeAsDate =  now() as Date {format: "yyyy-MM-dd'T'00:00:01'Z'"}
+var testeAsDate2 = testeAsDate as Date {format: "yyyy-MM-dd'T'00:00:00'Z'"}
+var testeAsString =  now() as String {format: "yyyy-MM-dd'T'00:00:01'Z'"}
+var testeAsString2 = testeAsDate as String {format: "yyyy-MM-dd'T'00:00:00'Z'"}
+---
+{
+	isTesteAsDateEqual: testeAsDate == testeAsDate2,
+	isTesteAsStringEqual: testeAsString == testeAsString2
+}
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
 	</flow>
 	<flow name="transformFlatToHierarchy" doc:id="83b49607-58e7-4eb1-9e5a-8131981cea18" >
-		<ee:transform doc:name="Transform Message" doc:id="66bb53fa-40c5-434a-bc72-034a79ea4369" >
+		<ee:transform doc:name="dataweave recursive example for hierarchical structure" doc:id="66bb53fa-40c5-434a-bc72-034a79ea4369" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
