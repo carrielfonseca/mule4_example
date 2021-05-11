@@ -68,6 +68,10 @@ var testeAsString2 = testeAsDate as String {format: "yyyy-MM-dd'T'00:00:00'Z'"}
 		<ee:transform doc:name="dataweave recursive example for hierarchical structure" doc:id="66bb53fa-40c5-434a-bc72-034a79ea4369" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
+// example of challenge to transform a flat array to a hierarchical array where the 
+// children technical positions have a parentCode equal the code field of the parent.
+// makes use of recursion in a clean way
+
 output application/json
 var t = [ {"code": 1, "parentCode": null}, {"code": 2, "parentCode": 1 }, {"code": 3, "parentCode": 2 }]
 fun teste(technicalPosition) = technicalPosition ++ {"technicalPositions": 
