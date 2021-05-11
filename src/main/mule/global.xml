@@ -16,7 +16,7 @@ http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/m
 			<apikit:flow-mapping resource="/users/{id}" action="put" content-type="application/json" flow-ref="users/(id)" />
 		</apikit:flow-mappings>
 	</apikit:config>
-	<flow name="transformJson" doc:id="58f04d2e-ea94-498a-b9a3-eda95220d01b">
+	<flow name="transformJsonExamples" doc:id="58f04d2e-ea94-498a-b9a3-eda95220d01b">
 		<ee:transform doc:name="some examples of data manipulation" doc:id="6b84d689-f564-40c9-9ca3-d97a291052ab">
 			<ee:message>
 				<ee:set-payload><![CDATA[%dw 2.0
