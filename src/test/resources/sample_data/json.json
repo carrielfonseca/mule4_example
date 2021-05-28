@@ -1,0 +1,319 @@
+{
+  "id": "a1s5B0000024cnBQAQ",
+  "technicalPositions": [
+    {
+      "workOrderId": "000084106293",
+      "code": "413345",
+      "description": "MULTI LOCATIF",
+      "category": "R",
+      "locationDetail": null,
+      "parentTechnicalPosition": null,
+      "localisation": null,
+      "userStatus": "ACT",
+      "objectType": "R1500",
+      "notificationNumber": null,
+      "target": false,
+      "orderingNumber": null,
+      "text": "",
+      "note": "",
+      "civicNumber": "110",
+      "street": "RUE DU BRUANT",
+      "apartment": null,
+      "postalCode": "J6V 0C6",
+      "intersection1": "DE L'ERABLE NOIR",
+      "intersection2": "DORE JAUNE",
+      "city": "TERREBONNE",
+      "province": "QC",
+      "country": "CA",
+      "phoneNumber": null,
+      "isCompleted": false,
+      "characteristics": [
+        {
+          "name": "0000000613",
+          "designation": "Diamètre",
+          "internalNumber": "000000000000864735",
+          "dataType": "NUM",
+          "unitOfMeasure": "mm",
+          "numberOfCharacters": "6",
+          "numberOfDecimals": "1",
+          "lowerLimit": "2.670000000000000E+01",
+          "higherLimit": "0.000000000000000E+00",
+          "value": "26,70 mm",
+          "code": "DM_ANTENNE_PASSIVE",
+          "isMultipleValues": false
+        }
+      ],
+      "measuringPoints": [
+        {
+          "name": "000002061371",
+          "description": "LECTURE DE FUITE",
+          "readingUnitOfMeasure": "%GZ",
+          "characteristicName": "0000002014",
+          "codeGroup": null,
+          "position": "0035",
+          "lowerLimitMeasure": null,
+          "higherLimitMeasure": null,
+          "lastDocumentNumber": "00000000000007060057",
+          "mesureDate": "2015-11-30T16:36:18Z",
+          "documentValue": "0,000",
+          "documentCode": null
+        }
+      ],
+      "equipments": [
+        {
+          "technicalPositionNumber": "413345",
+          "equipmentId": "000000000500216271",
+          "technicalObjectDesignation": "Régulateur",
+          "functionClass": null,
+          "sealedDate": null,
+          "articleDesignation": null,
+          "manufacturingSerialNumber": null,
+          "designationType": "S202H",
+          "manufacturer": "Fisher",
+          "pack": null,
+          "serialNumber": null,
+          "parameter": null,
+          "yearNextReplacement": "0000",
+          "localisation": "GARAGE",
+          "sampleStatus": null,
+          "lastYearCertification": "0000",
+          "userStatus": "ACT",
+          "constructionDate": null,
+          "deviceType": null,
+          "objectType": "R5002",
+          "category": "R",
+          "manufacturingClass": null,
+          "notificationNumber": null,
+          "target": false,
+          "text": "",
+          "civicNumber": "110",
+          "street": "RUE DU BRUANT",
+          "apartment": null,
+          "postalCode": "J6V 0C6",
+          "intersection1": "RUE DORE-JAUNE",
+          "intersection2": "DES MIGRATEURS",
+          "city": "TERREBONNE",
+          "province": "QC",
+          "country": "CA",
+          "phoneNumber": null,
+          "isCompleted": false,
+          "characteristics": [
+            {
+              "name": "0000000279",
+              "designation": "Diamètre",
+              "internalNumber": "000000000000528047",
+              "dataType": "NUM",
+              "unitOfMeasure": "mm",
+              "numberOfCharacters": "10",
+              "numberOfDecimals": "1",
+              "lowerLimit": "6.030000000000000E+01",
+              "higherLimit": "0.000000000000000E+00",
+              "value": "60,30 mm",
+              "code": "DM_ANTENNE_PASSIVE",
+              "isMultipleValues": false
+            }
+          ],
+          "measuringPoints": [
+            
+          ]
+        }
+      ],
+      "technicalPositions": [
+        {
+          "workOrderId": "000084106293",
+          "code": "413346",
+          "description": "Objet de raccordement",
+          "category": "A",
+          "locationDetail": null,
+          "parentTechnicalPosition": "413345",
+          "localisation": null,
+          "userStatus": null,
+          "objectType": null,
+          "notificationNumber": null,
+          "target": false,
+          "text": "",
+          "note": "",
+          "civicNumber": "110",
+          "street": "RUE DU BRUANT",
+          "apartment": null,
+          "postalCode": "J6V 0C6",
+          "intersection1": "RUE DORE-JAUNE",
+          "intersection2": "DES MIGRATEURS",
+          "city": "TERREBONNE",
+          "province": "QC",
+          "country": "CA",
+          "phoneNumber": null,
+          "isCompleted": false,
+          "characteristics": [
+            
+          ],
+          "measuringPoints": [
+            
+          ],
+          "equipments": [
+            
+          ],
+          "technicalPositions": [
+            {
+              "workOrderId": "000084106293",
+              "code": "413347",
+              "description": "Objet de raccordement",
+              "category": "A",
+              "locationDetail": null,
+              "parentTechnicalPosition": "413346",
+              "localisation": null,
+              "userStatus": null,
+              "objectType": null,
+              "notificationNumber": null,
+              "target": false,
+              "text": "",
+              "note": "",
+              "civicNumber": "110",
+              "street": "RUE DU BRUANT",
+              "apartment": null,
+              "postalCode": "J6V 0C6",
+              "intersection1": "RUE DORE-JAUNE",
+              "intersection2": "DES MIGRATEURS",
+              "city": "TERREBONNE",
+              "province": "QC",
+              "country": "CA",
+              "phoneNumber": null,
+              "isCompleted": false,
+              "characteristics": [
+                
+              ],
+              "measuringPoints": [
+                
+              ],
+              "equipments": [
+                
+              ],
+              "technicalPositions": [
+                
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "workOrderId": "000084106293",
+      "code": "D-02-BRANCHEME-0284240",
+      "description": "MULTI LOCATIF",
+      "category": "R",
+      "locationDetail": null,
+      "parentTechnicalPosition": null,
+      "localisation": null,
+      "userStatus": "ACT",
+      "objectType": "R1500",
+      "notificationNumber": null,
+      "target": false,
+      "orderingNumber": null,
+      "text": "",
+      "note": "",
+      "civicNumber": "110",
+      "street": "RUE DU BRUANT",
+      "apartment": null,
+      "postalCode": "J6V 0C6",
+      "intersection1": "DE L'ERABLE NOIR",
+      "intersection2": "DORE JAUNE",
+      "city": "TERREBONNE",
+      "province": "QC",
+      "country": "CA",
+      "phoneNumber": null,
+      "characteristics": [
+        {
+          "name": "0000000613",
+          "designation": "Diamètre",
+          "internalNumber": "000000000000864744",
+          "dataType": "NUM",
+          "unitOfMeasure": "mm",
+          "numberOfCharacters": "6",
+          "numberOfDecimals": "1",
+          "lowerLimit": "2.670000000000000E+01",
+          "higherLimit": "0.000000000000000E+00",
+          "value": "26,70 mm",
+          "code": "DM_ANTENNE_PASSIVE",
+          "isMultipleValues": false
+        }
+      ],
+      "measuringPoints": [
+        {
+          "name": "000002061371",
+          "description": "LECTURE DE FUITE",
+          "readingUnitOfMeasure": "%GZ",
+          "characteristicName": "0000002014",
+          "codeGroup": null,
+          "position": "0035",
+          "lowerLimitMeasure": null,
+          "higherLimitMeasure": null,
+          "lastDocumentNumber": "00000000000007060057",
+          "mesureDate": "2015-11-30T16:36:18Z",
+          "documentValue": "0,000",
+          "documentCode": null
+        }
+      ],
+      "equipments": [
+        {
+          "technicalPositionNumber": "D-02-BRANCHEME-0284240",
+          "equipmentId": "000000000500216271",
+          "technicalObjectDesignation": "Régulateur",
+          "functionClass": null,
+          "sealedDate": null,
+          "articleDesignation": null,
+          "manufacturingSerialNumber": null,
+          "designationType": "S202H",
+          "manufacturer": "Fisher",
+          "pack": null,
+          "serialNumber": null,
+          "parameter": null,
+          "yearNextReplacement": "0000",
+          "localisation": "GARAGE",
+          "sampleStatus": null,
+          "lastYearCertification": "0000",
+          "userStatus": "ACT",
+          "constructionDate": null,
+          "deviceType": null,
+          "objectType": "R5002",
+          "category": "R",
+          "manufacturingClass": null,
+          "notificationNumber": null,
+          "target": false,
+          "text": "",
+          "civicNumber": "110",
+          "street": "RUE DU BRUANT",
+          "apartment": null,
+          "postalCode": "J6V 0C6",
+          "intersection1": "RUE DORE-JAUNE",
+          "intersection2": "DES MIGRATEURS",
+          "city": "TERREBONNE",
+          "province": "QC",
+          "country": "CA",
+          "phoneNumber": null,
+          "characteristics": [
+            {
+              "name": "0000000279",
+              "designation": "Diamètre",
+              "internalNumber": "000000000000528055",
+              "dataType": "NUM",
+              "unitOfMeasure": "mm",
+              "numberOfCharacters": "10",
+              "numberOfDecimals": "1",
+              "lowerLimit": "6.030000000000000E+01",
+              "higherLimit": "0.000000000000000E+00",
+              "value": "60,30 mm",
+              "code": "DM_ANTENNE_PASSIVE",
+              "isMultipleValues": false
+            }
+          ],
+          "measuringPoints": [
+            
+          ]
+        }
+      ],
+      "technicalPositions": [
+        
+      ]
+    }
+  ]
+}

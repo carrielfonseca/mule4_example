@@ -63,6 +63,18 @@ var testeAsString2 = testeAsDate as String {format: "yyyy-MM-dd'T'00:00:00'Z'"}
 ]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+		<ee:transform doc:name="takes out certain keys from json" doc:id="32c9cb28-05a7-4535-b19e-63f2c20edf62" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+//tira as chaves characteristics e measuringPoints de todos os objetos dentro do technicalPositions 
+fun takeOutCharacteristicsAndMeasurings(nodeObject) = (nodeObject mapObject
+                                      (if ($$ ~= "technicalPositions" or $$ ~= "equipments") ( ($$) : ($ map (ele, index) -> takeOutCharacteristicsAndMeasurings(ele)) ) if (not isEmpty($))
+                                       else ($$): $))  - "characteristics" -"measuringPoints"
+---
+{technicalPositions: payload.technicalPositions map (takeOutCharacteristicsAndMeasurings($))}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
 	</flow>
 	<flow name="transformFlatToHierarchy" doc:id="83b49607-58e7-4eb1-9e5a-8131981cea18" >
 		<ee:transform doc:name="dataweave recursive example for hierarchical structure" doc:id="66bb53fa-40c5-434a-bc72-034a79ea4369" >
